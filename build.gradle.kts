@@ -1,5 +1,8 @@
 plugins {
-    kotlin("multiplatform") version "1.9.22"
+    alias(libs.plugins.multiplatform)
+    alias(libs.plugins.buildConfig)
+    alias(libs.plugins.kotlinx.serialization)
+//    alias(libs.plugins.sqlDelight)
 }
 
 group = "io.github.rokuosan"
@@ -11,19 +14,7 @@ repositories {
 }
 
 kotlin {
-    val hostOs = System.getProperty("os.name")
-    val isArm64 = System.getProperty("os.arch") == "aarch64"
-    val isMingwX64 = hostOs.startsWith("Windows")
-    val nativeTarget = when {
-        hostOs == "Mac OS X" && isArm64 -> macosArm64("native")
-        hostOs == "Mac OS X" && !isArm64 -> macosX64("native")
-        hostOs == "Linux" && isArm64 -> linuxArm64("native")
-        hostOs == "Linux" && !isArm64 -> linuxX64("native")
-        isMingwX64 -> mingwX64("native")
-        else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
-    }
-
-    nativeTarget.apply {
+    mingwX64("native").apply {
         binaries {
             executable {
                 entryPoint = "io.github.rokuosan.scoop_search.main"
@@ -32,7 +23,44 @@ kotlin {
         }
     }
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation(libs.kotlinx.coroutines.core)
+                implementation(libs.kotlinx.datetime)
+                implementation(libs.ktor.core)
+                implementation(libs.ktor.client.winhttp)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.multiplatformSettings)
+            }
+        }
+
+//        val jvmMain by getting {
+//            dependencies {
+//                implementation(libs.kotlinx.coroutines.core)
+//                implementation(libs.kotlinx.datetime)
+//                implementation(libs.ktor.core)
+//                implementation(libs.ktor.client.content.negotiation)
+//                implementation(libs.ktor.serialization.kotlinx.json)
+//                implementation(libs.multiplatformSettings)
+//                implementation(libs.ktor.client.winhttp)
+//            }
+//        }
     }
 
 }
+
+buildConfig {
+    // BuildConfig configuration here.
+    // https://github.com/gmazzo/gradle-buildconfig-plugin#usage-in-kts
+}
+
+//sqldelight {
+//    databases {
+//        create("MyDatabase") {
+//            // Database configuration here.
+//            // https://cashapp.github.io/sqldelight
+//            packageName.set("org.company.app.db")
+//        }
+//    }
+//}
