@@ -1,9 +1,10 @@
 {
   "version": "v0.0.1",
+  "hash": "ec53f6a000dfe6a78e19ef92d548578a2a0eec4a4a4c84f7b4ecb25112b03e60",
   "homepage": "https://github.com/rokuosan/scoop-search",
   "url": "https://github.com/rokuosan/scoop-search/releases/download/v0.0.1/scoop-search.exe",
   "license": "MIT",
-  "depends": "",
+  "extract_dir": "scoop-search",
   "bin": "scoop-search.exe",
   "notes": [
     "**You can use this application to run 'scoop-search <application>'.**"
