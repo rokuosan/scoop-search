@@ -6,6 +6,7 @@ napier = "2.7.0"
 buildConfig = "4.1.1"
 kotlinx-coroutines = "1.7.3"
 ktor = "2.3.7"
+clikt = "4.2.2"
 kotlinx-serialization = "1.6.2"
 kotlinx-datetime = "0.5.0"
 multiplatformSettings = "1.1.1"
@@ -22,6 +23,9 @@ kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutine
 kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+
+# Clikt
+clikt = { module = "com.github.ajalt.clikt:clikt", version.ref = "clikt" }
 
 # Ktor
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
