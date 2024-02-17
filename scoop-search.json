@@ -1,0 +1,11 @@
+{
+  "version": "v0.0.1",
+  "homepage": "https://github.com/rokuosan/scoop-search",
+  "url": "https://github.com/rokuosan/scoop-search/releases/download/v0.0.1/scoop-search.exe",
+  "license": "MIT",
+  "depends": "",
+  "bin": "scoop-search.exe",
+  "notes": [
+    "**You can use this application to run 'scoop-search <application>'.**"
+  ]
+}
