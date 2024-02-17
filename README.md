@@ -4,6 +4,11 @@ Search Scoop packages quickly.
 
 It's approximately 30 times faster than the standard search function on Scoop
 
+## Installation
+
+Download executable binary from [latest release](https://github.com/rokuosan/scoop-search/releases/latest).
+
+
 ## Usage
 
 ```shell
