@@ -8,7 +8,7 @@ data class Search(
     val search: String,
     val searchMode: String = "all",
     val filter: String = "Metadata/OfficialRepositoryNumber eq 1 and Metadata/DuplicateOf eq null",
-    val select: String = "Id,Name",
+    val select: String = "Id,Name,Description,Homepage,License,Version,Metadata/Repository,Metadata/OfficialRepository",
     val skip: Int = 0,
     val top: Int = 20,
 )
